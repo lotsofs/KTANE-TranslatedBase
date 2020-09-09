@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ExampleModule : MonoBehaviour
 {
     public KMSelectable[] buttons;
+
+    // todo cleanup
+    public ExtendedMissionSettingsReader emsr;
+    public Renderer moduleBackdrop;
 
     int correctIndex;
     bool isActivated = false;
@@ -10,8 +15,25 @@ public class ExampleModule : MonoBehaviour
     void Start()
     {
         Init();
+        moduleBackdrop.material.color = Color.yellow;
 
+        StartCoroutine(SomeSettingsThing());
         GetComponent<KMBombModule>().OnActivate += ActivateModule;
+    }
+
+    IEnumerator SomeSettingsThing() {
+        // todo: cleanup
+        yield return new WaitForSeconds(5f);
+        Debug.Log("AAAA");
+        if (emsr.FoundSettings.ContainsKey("Color")) {
+            Debug.Log("BBBB");
+            Color col;
+            Debug.Log("CCCC");
+            bool yeah = ColorUtility.TryParseHtmlString(emsr.FoundSettings["Color"], out col);
+            Debug.Log("DDDD");
+            moduleBackdrop.material.color = col;
+        }
+        Debug.Log("EEEEE");
     }
 
     void Init()

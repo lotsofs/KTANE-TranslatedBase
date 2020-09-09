@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4408991687075250}
   - component: {fileID: 114271956940695766}
   - component: {fileID: 114645382145894894}
-  - component: {fileID: 114937687379334878}
+  - component: {fileID: 114731195466990834}
+  - component: {fileID: 114884100426007438}
   m_Layer: 0
-  m_Name: MissionTest
+  m_Name: ExampleMissions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: -1453678656, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114937687379334878
+--- !u!114 &114731195466990834
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -72,7 +73,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1801227448271866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aa396eb3a478e844a01a161ed946d21, type: 3}
+  m_Script: {fileID: 11500000, guid: 118a5347342973d40bcd8ecad04de33d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bombInfo: {fileID: 114271956940695766}
+--- !u!114 &114884100426007438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1801227448271866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2144496390, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

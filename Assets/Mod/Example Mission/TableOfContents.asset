@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: -434690030, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: TableOfContents
   m_EditorClassIdentifier: 
-  Title: sdrfgrg
+  Title: Extended Mission Settings Examples
   Sections:
-  - Title: dfgdfg
+  - Title: Example Section
     MissionIDs:
-    - mission
+    - ExampleMission
