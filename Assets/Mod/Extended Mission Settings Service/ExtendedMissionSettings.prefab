@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114478865950168064}
   - component: {fileID: 114934740695720610}
   - component: {fileID: 114353479446081198}
+  - component: {fileID: 114895695410317758}
   m_Layer: 0
   m_Name: ExtendedMissionSettings
   m_TagString: Untagged
@@ -64,6 +65,17 @@ MonoBehaviour:
   m_Script: {fileID: -1453678656, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114895695410317758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481714949017682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -271661043, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114934740695720610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,3 +88,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bombInfo: {fileID: 114353479446081198}
+  _gameInfo: {fileID: 114895695410317758}
