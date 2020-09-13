@@ -1,67 +1,37 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using Newtonsoft.Json;
 
-public class ExtendedMissionSettingsReader : MonoBehaviour {
+public class ExtendedMissionSettingsReader<T> : MonoBehaviour {
 
-	public KMBombInfo _bombInfo;
-	public Dictionary<string, string> FoundSettings;
-
-	// Use this for initialization
-	void Start () {
-		StartCoroutine(CheckForMissions());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	IEnumerator CheckForMissions() {
-			// todo clean up
-			yield return new WaitForSeconds(2.0f);
-			GameObject gameObject = GameObject.Find("ExtendedMissionSettings(Clone)");
-			if (gameObject == null) {
-				Debug.Log("TODO: Something went wrong");
-				yield break;
-			}
-			Component ems = gameObject.GetComponent("ExtendedMissionSettings");
-			if (ems == null) {
-				Debug.Log("TODO: Something went wrong");
-				yield break;
-			}
-			Type type = ems.GetType();
-
-			FieldInfo fieldReady;
-			try {
-				fieldReady = type.GetField("BombStarted", BindingFlags.Public | BindingFlags.Static);
-			}
-			catch (Exception e) {
-				Debug.Log("TODO: Something went wrong");
-				Debug.Log(e.Message);
-				yield break;
-			}
-			bool ready = false;
-			while (!ready) {
-				ready = (bool)fieldReady.GetValue(ems);
-				yield return null;
-			}
+	public static EMSRResults ReadMissionSettings(out T settings) {
+		GameObject emsGO = GameObject.Find("ExtendedMissionSettings(Clone)");
+		if (emsGO == null) {
+			settings = default(T);
+			return EMSRResults.NotInstalled;
+		}
+		Type type;
+		Component extendedMissionSettings;
+		try {
+			extendedMissionSettings = emsGO.GetComponent("ExtendedMissionSettings");
+			type = extendedMissionSettings.GetType();
 			FieldInfo fieldSettings;
-			try {
-				fieldSettings = type.GetField("CurrentMissionSettings");
-			}
-			catch (Exception e) {
-				Debug.Log("TODO: Something went wrong");
-				Debug.Log(e.Message);
-				yield break;
-			}
+			fieldSettings = type.GetField("CurrentMissionSettings");
+			string settingsValue = (string)fieldSettings.GetValue(extendedMissionSettings);
+			settings = JsonConvert.DeserializeObject<T>(settingsValue);
 
-			Dictionary<string, string> dict = (Dictionary<string, string>)fieldSettings.GetValue(ems);
-			foreach (string d in dict.Keys) {
-				Debug.LogFormat("QWEQWEQWE: {0} {1}", d, dict[d]);
+			if (settingsValue == null) {
+				Debug.LogWarning("[Extended Mission Settings] The EMS service did not keep up with the gamestate in time! Please hand in a bug report with an unfiltered log file");
+				return EMSRResults.ReceivedNull;    
 			}
-			FoundSettings = dict;
+			else if (settingsValue.Length == 0) return EMSRResults.Empty;
+			else return EMSRResults.Success;
+		}
+		catch (Exception e) {
+			settings = default(T);
+			Debug.Log(e.Message);
+			return EMSRResults.Error;
+		}
 	}
 }
