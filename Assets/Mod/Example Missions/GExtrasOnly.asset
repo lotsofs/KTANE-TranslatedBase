@@ -9,10 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -548183353, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
-  m_Name: ExampleMission
+  m_Name: GExtrasOnly
   m_EditorClassIdentifier: 
-  DisplayName: Example Mission
-  Description: Pink Module!!
+  DisplayName: Extras Only
+  Description: No configs for the module were provided. Only fictitious ones for other
+    pretend modules.
   GeneratorSetting:
     TimeLimit: 300
     NumStrikes: 3
@@ -21,9 +22,16 @@ MonoBehaviour:
     OptionalWidgetCount: 5
     ComponentPools:
     - Count: 1
-      AllowedSources: 2
+      AllowedSources: 1
       ComponentTypes: 
       SpecialComponentType: 0
       ModTypes:
       - ExampleModule
+    - Count: 1
+      AllowedSources: 1
+      ComponentTypes: 
+      SpecialComponentType: 0
+      ModTypes:
+      - Extended Settings {"SomethingElse_Setting":"SomeValue"}
+      - Extended Settings {"SomethingEvenElse_Setting":"SomeValueToo"}
   PacingEventsEnabled: 0

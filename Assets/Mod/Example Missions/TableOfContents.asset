@@ -15,4 +15,15 @@ MonoBehaviour:
   Sections:
   - Title: Example Section
     MissionIDs:
-    - ExampleMission
+    - AProper2in1
+    - BProper2in2
+    - CProper1in1
+    - DNotConfigured
+    - EProperExtras
+    - FProperColorOnly
+    - GExtrasOnly
+    - HOddlyConfigured
+    - IWrongCaps
+    - JDuplicates
+    - KTypoMission
+    - LOverachiever
