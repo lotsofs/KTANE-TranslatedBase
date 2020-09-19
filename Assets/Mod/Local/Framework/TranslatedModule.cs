@@ -79,7 +79,7 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 			Configuration<TranslationSettings> configG = new Configuration<TranslationSettings>("TranslatedModules-Settings");
 			if (configG.Settings != null) {
 				configG.Settings.UseGlobalSettings = true;
-				Log("Config file dictates using the global translated modules settings.");
+				Log("Configuration file dictates using the global translated modules settings.");
 				return configG.Settings;
 			}
 			else {
@@ -87,7 +87,7 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 				GameObject ts = GameObject.Find("TranslatedModulesService(Clone)");
 				if (ts == null) {
 					// translated modules service not installed.
-					Log("Config file dictates using the global translated modules settings, but the translated modules service does not appear to be installed.");
+					Log("Configuration file dictates using the global translated modules settings, but the translated modules service does not appear to be installed.");
 					return null;
 				}
 				try {
@@ -98,13 +98,13 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 					Configuration<TranslationSettings> configG2 = new Configuration<TranslationSettings>("TranslatedModules-Settings");
 					if (configG2.Settings != null) {
 						configG2.Settings.UseGlobalSettings = true;
-						Log("Config file dictates using the global translated modules settings. These settings were found, but under a different filename than expected.");
+						Log("Configuration file dictates using the global translated modules settings. These settings were found, but under a different filename than expected.");
 						return configG2.Settings;
 					}
 				}
 				catch (Exception e) {
 					Debug.Log(e.Message);
-					Log("Config file dictates using the global translated modules settings, but an error occured trying to acquire them.");
+					Log("Configuration file dictates using the global translated modules settings, but an error occured trying to acquire them.");
 					return null;
 				}
 			}
