@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68768987c3414114c9287191ba11d404, type: 3}
+  m_Name: TH
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Thai
+  NativeName: "\u0E44\u0E17\u0E22"
+  Iso639: th
+  Version: 1
+  ManualAvailable: 1
+  DisplayMethod: 2
+  Press: "\u0E01\u0E14"
+  Hold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
+  Abort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  Detonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
+  LogPress: "\u0E01\u0E14"
+  LogHold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
+  LogAbort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  LogDetonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
+  Font: {fileID: 12800000, guid: 08f5121ba760eac43a33dc29d63bd1a5, type: 3}
+  FontMaterial: {fileID: 2100000, guid: 6a3424f37a23f764294d857c3a204bfe, type: 2}
+  VerticalOffset: 0
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
