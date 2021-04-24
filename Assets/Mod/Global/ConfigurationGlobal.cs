@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class ConfigurationGlobal<T> {
 
+	// todo: Make all modules read from the same file - look at color blind mode
+	// todo: Add profiles for languages
+
 	readonly string SettingsPath = null;
 	static readonly object settingsFileLock = new object();
 	const string deprecatedMsg = "This configuration file is deprecated. Please use the new one. You can safely delete this one.";

@@ -12,22 +12,13 @@ public class StickerGlobal : MonoBehaviour {
 	[SerializeField] TextMesh _labelRegion;
 	[SerializeField] TextMesh _blackBarTop;
 	[SerializeField] TextMesh _blackBarBottom;
+	[SerializeField] TextMesh _tagText;
 
 	const string CHARS_ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	const string CHARS_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	const string CHARS_NOTHEXADECIMAL = "GHIJKLMNOPQRSTUVWXYZ";
 
-	public void GenerateText(string language, int langVersion, string periodicTableSymbol) {
-		_labelLang.text = language;
-		if (language.Length == 3) _labelLang.fontSize = 222;
-		_labelScript.text = string.Empty;
-		_labelRegion.text = string.Empty;
-
-		TopBlackBar(language, string.Empty, periodicTableSymbol);
-		BottomBlackBar(langVersion, string.Empty);
-	}
-
-	void GenerateText(string language, string region, string script, int langVersion, string periodicTableSymbol) {
+	void GenerateText(string language, string region, string script, int langVersion, string periodicTableSymbol, string ietfTag) {
 		if (language.Length == 3) {
 			_labelLang.gameObject.SetActive(false);
 			_labelLang3.gameObject.SetActive(true);
@@ -37,6 +28,7 @@ public class StickerGlobal : MonoBehaviour {
 		_labelLang.text = language;
 		_labelScript.text = script;
 		_labelRegion.text = region;
+		_tagText.text = ietfTag;
 
 		TopBlackBar(language, region, periodicTableSymbol);
 		BottomBlackBar(langVersion, script);
