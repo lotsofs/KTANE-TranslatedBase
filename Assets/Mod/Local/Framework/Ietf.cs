@@ -135,6 +135,7 @@ public static class Ietf {
 		{ "en", new Language { Anglonym = "English",        Endonym = "English",            SuppressScript = "Latn" } },
 		{ "eo", new Language { Anglonym = "Esperanto",      Endonym = "Esperanto",          SuppressScript = "Latn" } },
 		{ "es", new Language { Anglonym = "Spanish",        Endonym = "Español",            SuppressScript = "Latn" } },
+		{ "et", new Language { Anglonym = "Estonian",       Endonym = "Eesti",				SuppressScript = "Latn" } },
 		{ "eu", new Language { Anglonym = "Basque",         Endonym = "Euskara",            SuppressScript = "Latn" } },
 		{ "fi", new Language { Anglonym = "Finnish",        Endonym = "Suomi",              SuppressScript = "Latn" } },
 		{ "fr", new Language { Anglonym = "French",         Endonym = "Français",           SuppressScript = "Latn" } },
@@ -162,12 +163,13 @@ public static class Ietf {
 		{ "ru", new Language { Anglonym = "Russian",        Endonym = "Русский",            SuppressScript = "Cyrl" } },
 		{ "so", new Language { Anglonym = "Somali",         Endonym = "Soomaaliga",         SuppressScript = "Latn" } },
 		{ "sv", new Language { Anglonym = "Swedish",        Endonym = "Svenska",            SuppressScript = "Latn" } },
+		{ "th", new Language { Anglonym = "Thai",           Endonym = "ไทย",					SuppressScript = "Thai" } },
 		{ "tl", new Language { Anglonym = "Tagalog",        Endonym = "Tagalog",            SuppressScript = "Latn" } },
 		{ "tr", new Language { Anglonym = "Turkish",        Endonym = "Türkçe",             SuppressScript = "Latn" } },
 		{ "tt", new Language { Anglonym = "Tatar",          Endonym = "Татарча",            SuppressScript = null } },
 		{ "uk", new Language { Anglonym = "Ukrainian",      Endonym = "Українська",         SuppressScript = "Cyrl" } },
 		{ "vi", new Language { Anglonym = "Vietnamese",     Endonym = "Tiếng Việt",         SuppressScript = "Latn" } },
-
+		{ "zh", new Language { Anglonym = "Chinese",        Endonym = "中文",				SuppressScript = null } },
 
 		{ "aa", new Language { Anglonym = "Afar",           Endonym = "", SuppressScript = "" } },
 		{ "ab", new Language { Anglonym = "Abkhazian",      Endonym = "", SuppressScript = "" } },
@@ -199,7 +201,6 @@ public static class Ietf {
 		{ "dz", new Language { Anglonym = "Dzongkha",       Endonym = "", SuppressScript = "" } },
 
 		{ "ee", new Language { Anglonym = "Ewe",            Endonym = "", SuppressScript = "" } },
-		{ "et", new Language { Anglonym = "Estonian",       Endonym = "", SuppressScript = "" } },
 
 		{ "fa", new Language { Anglonym = "Persian",        Endonym = "", SuppressScript = "" } },
 		{ "ff", new Language { Anglonym = "Fulah",          Endonym = "", SuppressScript = "" } },
@@ -304,7 +305,6 @@ public static class Ietf {
 		{ "ta", new Language { Anglonym = "Tamil",          Endonym = "", SuppressScript = "" } },
 		{ "te", new Language { Anglonym = "Telugu",         Endonym = "", SuppressScript = "" } },
 		{ "tg", new Language { Anglonym = "Tajik",          Endonym = "", SuppressScript = "" } },
-		{ "th", new Language { Anglonym = "Thai",           Endonym = "", SuppressScript = "" } },
 		{ "ti", new Language { Anglonym = "Tigrinya",       Endonym = "", SuppressScript = "" } },
 		{ "tk", new Language { Anglonym = "Turkmen",        Endonym = "", SuppressScript = "" } },
 		{ "tn", new Language { Anglonym = "Tswana",         Endonym = "", SuppressScript = "" } },
@@ -329,7 +329,6 @@ public static class Ietf {
 		{ "yo", new Language { Anglonym = "Yoruba",         Endonym = "", SuppressScript = "" } },
 
 		{ "za", new Language { Anglonym = "Zhuang; Chuang", Endonym = "", SuppressScript = "" } },
-		{ "zh", new Language { Anglonym = "Chinese",        Endonym = "", SuppressScript = "" } },
 		{ "zu", new Language { Anglonym = "Zulu",           Endonym = "", SuppressScript = "" } },
 
 	};
