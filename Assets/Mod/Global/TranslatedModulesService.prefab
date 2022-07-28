@@ -52,7 +52,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84504a982e39b7469e0141d1fab26af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  file: {fileID: 4900000, guid: 8af06f0ff5b2c384eac61d993406146d, type: 3}
   Sticker: {fileID: 1988057682763460, guid: 872f658610f75644583d75c555683a7e, type: 2}
+  SettingsFileName: TranslatedModules-Settings
 --- !u!114 &114740839797361142
 MonoBehaviour:
   m_ObjectHideFlags: 1

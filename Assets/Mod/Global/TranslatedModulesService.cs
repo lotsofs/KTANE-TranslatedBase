@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.IO;
+using UnityEngine;
 
 public class TranslatedModulesService : MonoBehaviour {
-
 	public GameObject Sticker;
 	public string SettingsFileName = "TranslatedModules-Settings";
 
@@ -14,4 +17,7 @@ public class TranslatedModulesService : MonoBehaviour {
 		}
 		config.Settings = settings;
 	}
+
+
+
 }
