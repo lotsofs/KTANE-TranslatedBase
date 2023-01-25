@@ -29,6 +29,7 @@ public class StickerGlobal : MonoBehaviour {
 		}
 
 		// dissect the tag https://tools.ietf.org/rfc/bcp/bcp47.txt
+		// todo: move to function, this information is useful for logging too. 
 		var subtags = ietfTag.ToLowerInvariant().Split(new[] { '-' });
 		foreach (string subtag in subtags) {
 			if (subtag.Length > 8) {
@@ -50,12 +51,12 @@ public class StickerGlobal : MonoBehaviour {
 
 		// language, non-optional
 		language = subtags[index];
-		index++; if (index > subtags.Length) goto Sticker;
+		if (++index >= subtags.Length) goto Sticker;
 		// extlang, which will always be 3 alpha
 		for (int i = 0; i < 3; i++) {
 			if (subtags[index].Length == 3 && CHARS_ALPHABETLOWER.Contains(subtags[index][0])) {
 				extlang.Add(subtags[index]);
-				index++; if (index > subtags.Length) goto Sticker;
+				if (++index >= subtags.Length) goto Sticker;
 			}
 			else {
 				break;
@@ -64,14 +65,14 @@ public class StickerGlobal : MonoBehaviour {
 		// script, 4 alpha
 		if (subtags[index].Length == 4 && CHARS_ALPHABETLOWER.Contains(subtags[index][0])) {
 			script = subtags[index];
-			index++; if (index > subtags.Length) goto Sticker;
+			if (++index >= subtags.Length) goto Sticker;
 		}
 		// region, 2 alpha or 3 digit
 		bool twoAlpha = subtags[index].Length == 2 && CHARS_ALPHABETLOWER.Contains(subtags[index][0]);
 		bool threeDigit = subtags[index].Length == 3 && CHARS_NUMERIC.Contains(subtags[index][0]);
 		if (twoAlpha || threeDigit) {
 			region = subtags[index];
-			index++; if (index > subtags.Length) goto Sticker;
+			if (++index >= subtags.Length) goto Sticker;
 		}
 		// variant, alphanumeric, max 8. first character a digit = minimum of 4, first char alpha = min of 5
 		for (int fallback = 100; fallback > 0; fallback--) {
@@ -79,7 +80,7 @@ public class StickerGlobal : MonoBehaviour {
 			bool fourDigit = subtags[index].Length >= 4 && CHARS_NUMERIC.Contains(subtags[index][0]);
 			if (fiveAlpha || fourDigit) {
 				variant.Add(subtags[index]);
-				index++; if (index > subtags.Length) goto Sticker;
+				if (++index >= subtags.Length) goto Sticker;
 			}
 			else {
 				break;
@@ -89,14 +90,14 @@ public class StickerGlobal : MonoBehaviour {
 		if (subtags[index].Length > 1) {
 			Debug.LogErrorFormat("[Translation Service] Module {0} provided langtag {1} which has subtag {2} of length {3}. However, expected a singleton at this position",
 				periodicTableSymbol, ietfTag, subtags[index], subtags[index].Length);
-			index++; if (index > subtags.Length) goto Sticker;
+			if (++index >= subtags.Length) goto Sticker;
 		}
 		else {
 			Singleton:
 			switch (subtags[index]) {
 				case "t":
 					// transformed content
-					index++; if (index > subtags.Length) goto Sticker;
+					if (++index >= subtags.Length) goto Sticker;
 					TransformedContent:
 					for (int fallback = 100; fallback > 0; fallback--) {
 						if (subtags[index].Length == 1) goto Singleton;
@@ -104,11 +105,11 @@ public class StickerGlobal : MonoBehaviour {
 							case "t0":
 								// machine translated content
 								machineTranslation = "und";
-								index++; if (index > subtags.Length) goto Sticker;
+								if (++index >= subtags.Length) goto Sticker;
 								if (subtags[index].Length == 1) goto Singleton;
 								else {
 									machineTranslation = subtags[index];
-									index++; if (index > subtags.Length) goto Sticker;
+									if (++index >= subtags.Length) goto Sticker;
 								}
 								if (subtags[index].Length == 1) goto Singleton;
 								else {
@@ -123,26 +124,26 @@ public class StickerGlobal : MonoBehaviour {
 							case "h0":
 							case "x0":
 								// TODO: not supported subtag
-								index++; if (index > subtags.Length) goto Sticker;
+								if (++index >= subtags.Length) goto Sticker;
 								break;
 							default:
 								// TODO: unexpected subtag
-								index++; if (index > subtags.Length) goto Sticker;
+								if (++index >= subtags.Length) goto Sticker;
 								break;
 						}
 					}
 					break;
 				case "u":
 					// TODO: not supported extension
-					index++; if (index > subtags.Length) goto Sticker;
+					if (++index >= subtags.Length) goto Sticker;
 					break;
 				case "x":
 					// private use
-					index++; if (index > subtags.Length) goto Sticker;
+					if (++index >= subtags.Length) goto Sticker;
 					goto PrivateUse;
 				default:
 					// TODO: unexpected extension
-					index++; if (index > subtags.Length) goto Sticker;
+					if (++index >= subtags.Length) goto Sticker;
 					break;
 			}
 		}
@@ -151,7 +152,7 @@ public class StickerGlobal : MonoBehaviour {
 		for (int fallback = 100; fallback > 0; fallback--) {
 			if (subtags[index].Length > 1 && subtags[index][0] == 'v' && CHARS_NUMERIC.Contains(subtags[index][1])) {
 				version = subtags[index];
-				index++; if (index > subtags.Length) goto Sticker;
+				if (++index >= subtags.Length) goto Sticker;
 				continue;
 			}
 			switch (subtags[index]) {
@@ -167,7 +168,7 @@ public class StickerGlobal : MonoBehaviour {
 					// todo: unknown private use subtag
 					break;
 			}
-			index++; if (index > subtags.Length) goto Sticker;
+			if (++index >= subtags.Length) goto Sticker;
 		}
 
 
